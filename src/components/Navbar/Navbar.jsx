@@ -1,7 +1,7 @@
 import navImg from "../../assets/logo.png";
 import curr from "../../assets/currencyIcon.png";
 
-const Navbar = () => {
+const Navbar = ({ availableBalance }) => {
   return (
     <div>
       <div className="navbar max-w-[1296px] mx-auto">
@@ -11,8 +11,8 @@ const Navbar = () => {
           </a>
         </div>
         <div className="flex items-center">
-          <span className="mr-1">6000000</span>
-          <span className="mr-1">Coin</span>
+          <span className="mr-1"></span>
+          <span className="mr-1 font-bold">{availableBalance}</span>
           <img src={curr} alt="currency Icon" />
         </div>
       </div>

@@ -2,8 +2,8 @@ import React from 'react';
 
 const SelectedPlayers = () => {
     return (
-        <div>
-            
+        <div className='max-w-[1296px] mx-auto'>
+            la la la
         </div>
     );
 };
