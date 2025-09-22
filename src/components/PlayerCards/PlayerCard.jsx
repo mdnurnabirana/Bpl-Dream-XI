@@ -2,7 +2,7 @@ import userIcon from "../../assets/icon-1.png";
 import flagIcon from "../../assets/flag-icon.png";
 import { useState } from "react";
 
-const PlayerCard = ({ player, setAvailableBalance, availableBalance }) => {
+const PlayerCard = ({ player, setAvailableBalance, availableBalance, myPlayers, setMyPlayers }) => {
   const [isSelected, setIsSelected] = useState(false);
   const handleChoosePlayer = () => {
     const price = parseInt(player.price, 10); // ensure it's a number
@@ -15,6 +15,8 @@ const PlayerCard = ({ player, setAvailableBalance, availableBalance }) => {
 
     setIsSelected(true);
     setAvailableBalance(balance - price);
+
+    setMyPlayers([...myPlayers, player]);
   };
 
   return (
