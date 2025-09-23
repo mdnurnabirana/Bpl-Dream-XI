@@ -6,6 +6,7 @@ const SelectedPlayers = ({ myPlayers, removePlayer }) => {
       {myPlayers.map((player) => (
         <SelectedCard player={player} removePlayer ={removePlayer} />
       ))}
+      <button className="bg-[#E7FE29] py-3 px-5 rounded-2xl font-semibold mt-5">Add More Player</button>
     </div>
   );
 };

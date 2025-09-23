@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar/Navbar";
 import AvailablePlayers from "./components/AvailablePlayers/AvailablePlayers";
 import SelectedPlayers from "./components/SelectedPlayers/SelectedPlayers";
 import { Suspense, useState } from "react";
-
+import { ToastContainer } from "react-toastify";
+import Banner from "./components/Banner/Banner";
 // Player Api Fetching
 const fetchPlayers = async () => {
   const res = await fetch("/player.json");
@@ -26,6 +27,7 @@ function App() {
     <>
       {/* Navbar  */}
       <Navbar availableBalance={availableBalance}></Navbar>
+      <Banner availableBalance={availableBalance} setAvailableBalance={setAvailableBalance}></Banner>
       <div className="max-w-[1296px] mx-auto flex justify-between items-center my-5">
         <h1 className="font-bold text-2xl">{
           toggle ? "Available Players" : `Selected Players (${myPlayers.length}/6)`
@@ -69,6 +71,8 @@ function App() {
       ) : (
         <SelectedPlayers removePlayer = {removePlayer} myPlayers={myPlayers}></SelectedPlayers>
       )}
+
+      <ToastContainer position="top-center" />
     </>
   );
 }

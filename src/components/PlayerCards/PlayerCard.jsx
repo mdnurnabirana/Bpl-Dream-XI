@@ -1,15 +1,27 @@
 import userIcon from "../../assets/icon-1.png";
 import flagIcon from "../../assets/flag-icon.png";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
-const PlayerCard = ({ player, setAvailableBalance, availableBalance, myPlayers, setMyPlayers }) => {
+const PlayerCard = ({
+  player,
+  setAvailableBalance,
+  availableBalance,
+  myPlayers,
+  setMyPlayers,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
   const handleChoosePlayer = () => {
     const price = parseInt(player.price, 10); // ensure it's a number
     const balance = parseInt(availableBalance, 10);
 
     if (price > balance) {
-      alert("Not enough balance to select this player!");
+      toast("Not enough balance to select this player!");
+      return;
+    }
+
+    if (myPlayers.length === 6) {
+      toast.error("6 Players already selected!");
       return;
     }
 
