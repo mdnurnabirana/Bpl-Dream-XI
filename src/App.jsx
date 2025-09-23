@@ -6,6 +6,7 @@ import { Suspense, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import Banner from "./components/Banner/Banner";
 import Newsletter from "./components/Newsletter/Newsletter";
+import Footer from "./components/Footer/Footer";
 // Player Api Fetching
 const fetchPlayers = async () => {
   const res = await fetch("/player.json");
@@ -74,6 +75,7 @@ function App() {
       )}
 
       <Newsletter></Newsletter>
+      <Footer></Footer>
       <ToastContainer position="top-center" />
     </>
   );
