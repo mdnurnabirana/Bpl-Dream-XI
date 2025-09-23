@@ -5,6 +5,7 @@ import SelectedPlayers from "./components/SelectedPlayers/SelectedPlayers";
 import { Suspense, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import Banner from "./components/Banner/Banner";
+import Newsletter from "./components/Newsletter/Newsletter";
 // Player Api Fetching
 const fetchPlayers = async () => {
   const res = await fetch("/player.json");
@@ -69,9 +70,10 @@ function App() {
           ></AvailablePlayers>
         </Suspense>
       ) : (
-        <SelectedPlayers removePlayer = {removePlayer} myPlayers={myPlayers}></SelectedPlayers>
+        <SelectedPlayers removePlayer = {removePlayer} myPlayers={myPlayers} toggle={toggle} setToggle={setToggle}></SelectedPlayers>
       )}
 
+      <Newsletter></Newsletter>
       <ToastContainer position="top-center" />
     </>
   );
